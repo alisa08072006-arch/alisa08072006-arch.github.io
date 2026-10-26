@@ -325,12 +325,13 @@ body.sw-on .sw{opacity:1;pointer-events:auto;transform:translateX(-50%)}
 <!-- BUSINESS · sound like you? -->
 <section class="business-only" id="sound" data-wash="4">
   <div class="eyebrow">Sound like you?</div>
-  <h2>Four things owners tell me.</h2>
+  <h2>Five things owners ask me.</h2>
   <div class="asks">
     <div class="ask"><h3>I don't have time for content.</h3><p><b>Good. You don't need any.</b> Every month I plan it, film it, cut it, post it, and watch what works. You show up and say yes or no.</p></div>
     <div class="ask"><h3>I hate being on camera.</h3><p><b>Most people do, until we start talking.</b> My job is to calm you down and be nice so you act natural. If you truly hate it, we don't put you on camera.</p></div>
     <div class="ask"><h3>Does this bring customers?</h3><p><b>It brings trust.</b> People might not buy a house from a Reel, but the videos prove you know your stuff. When they call, you're not a stranger.</p></div>
     <div class="ask"><h3>I tried posting. It died in two weeks.</h3><p><b>That's why it's monthly.</b> Shoot days every month, I come to you. Something new on your page all month, with stories in between.</p></div>
+    <div class="ask"><h3>What does it cost?</h3><p><b>Depends on how many shoot days you want.</b> I tell you on a 15-minute call.</p></div>
   </div>
   <p class="oneline">You run your business. I run your page.</p>
 </section>
@@ -606,8 +607,12 @@ body.sw-on .sw{opacity:1;pointer-events:auto;transform:translateX(-50%)}
   function ok(m){ return m==='business'||m==='project'; }
   function mode(){ return root.getAttribute('data-mode')||''; }
   function press(list,m){ list.forEach(function(b){ b.setAttribute('aria-pressed', (b.getAttribute('data-m')||'')===m?'true':'false'); }); }
+  function smsBody(m){ var c=document.getElementById('cfg'), ph=c?c.getAttribute('data-phone'):''; if(!ph) return;
+    var body=m==='business'?'Hi Alisa, I saw your site. I run ':'Hi Alisa, I saw your site. ';
+    document.querySelectorAll('[data-sms]').forEach(function(a){ a.href='sms:'+ph+'?&body='+encodeURIComponent(body); }); }
   function setMode(m){
     if(ok(m)) root.setAttribute('data-mode',m); else root.removeAttribute('data-mode');
+    smsBody(ok(m)?m:'');
     press(pills,m); press(doors,m);
     requestAnimationFrame(function(){ try{ dispatchEvent(new Event('resize')); }catch(e){} if(window.pickWash) window.pickWash(); if(window.updTint) window.updTint(); });
   }
@@ -635,7 +640,7 @@ body.sw-on .sw{opacity:1;pointer-events:auto;transform:translateX(-50%)}
   addEventListener('hashchange',function(){ var h=location.hash.replace('#',''); if(!ok(h)) return; var same=mode()===h; if(!same) setMode(h); setTimeout(function(){ jump(same?h:FIRST[h],true); },30); });
   function onScroll(){ if(hero) body.classList.toggle('sw-on', hero.getBoundingClientRect().bottom<12); }
   addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
-  press(pills,mode()); press(doors,mode());
+  press(pills,mode()); press(doors,mode()); smsBody(mode());
   var h0=location.hash.replace('#','');
   if(ok(h0)) setTimeout(function(){ jump(FIRST[h0],false); },60);
 })();
