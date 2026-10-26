@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alisa08072006-arch.github.io/sitemap.xml

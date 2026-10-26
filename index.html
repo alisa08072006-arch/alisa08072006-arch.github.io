@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Alisa Akimova · Photo & video · California</title>
+<meta name="description" content="Photo and video for your business every month, or for your project once. Fashion films, reels, runway, real estate. Alisa Akimova, California.">
+<link rel="canonical" href="https://alisa08072006-arch.github.io/">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alisa08072006-arch.github.io/">
+<meta property="og:title" content="Alisa Akimova">
+<meta property="og:description" content="Photo & video. Every month for your business, or once for your project. California.">
+<meta property="og:image" content="https://alisa08072006-arch.github.io/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,800&family=Figtree:wght@400;500;600&family=DM+Mono:wght@400&family=Caveat:wght@500&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<style>
+/* Option E · two doors, her way. Layout only; tokens, fonts, grain and wash come from css/base.css. */
+.flow{display:flex;flex-direction:column;transition:opacity .22s ease}
+body.switching .flow{opacity:0}
+/* the three states: no mode = everything, or one door. All sections stay in the DOM. */
+html[data-mode="business"] .project-only,html[data-mode="business"] .neutral-only,
+html[data-mode="project"] .business-only,html[data-mode="project"] .neutral-only,
+html:not([data-mode]) .business-only,html:not([data-mode]) .project-only{display:none!important}
+.hero{order:0}#work{order:2}#photos{order:3}#allbiz{order:4}#allrunway{order:5}#bts{order:6}
+#owners{order:10}#business{order:11}#biz{order:12}#bizphotos{order:13}#sound{order:14}#month{order:15}
+#projects{order:20}#project{order:21}#runway{order:22}#stills{order:23}#onset{order:24}#oneshoot{order:25}
+#about{order:40}#contact{order:41}
+
+/* 1 · first screen: her films behind her name, two doors */
+.hero{position:relative;overflow:hidden;background:#0c0b0a;justify-content:flex-end;gap:22px;padding-bottom:calc(26px + env(safe-area-inset-bottom,0px))}
+.reel{position:absolute;inset:0;z-index:0;background:#0c0b0a}
+.reel video,.reel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:0;transition:opacity 1.2s ease;display:block}
+.reel .on{opacity:1}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.5) 0%,rgba(10,10,11,.06) 30%,rgba(10,10,11,.26) 56%,rgba(10,10,11,.9) 100%)}
+.hero>*{position:relative;z-index:1}
+.hero .reel{z-index:0}
+.hero .eyebrow{color:rgba(236,232,225,.74);margin-bottom:10px}
+.hero h1{font-size:clamp(54px,15.5vw,172px)}
+.hero .one{color:rgba(236,232,225,.88);max-width:28ch}
+.now{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;margin-top:8px;font:11px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(236,232,225,.62)}
+.now .snd{font:inherit;letter-spacing:inherit;text-transform:inherit;color:rgba(236,232,225,.85);border:1px solid rgba(236,232,225,.3);border-radius:999px;padding:9px 12px;min-height:34px;background:rgba(10,10,11,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.now .snd[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.which{margin:6px 0 10px;font:11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(236,232,225,.7)}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.door{position:relative;display:grid;gap:5px;align-content:end;text-align:left;min-height:124px;padding:14px 14px 13px;border-radius:14px;border:1px solid rgba(236,232,225,.3);background:rgba(10,10,11,.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transition:border-color .3s,background .3s,transform .3s,opacity .3s}
+.door small{font:11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(236,232,225,.66)}
+.door b{font:800 clamp(19px,5.4vw,36px)/1 var(--display);letter-spacing:-.03em}
+.door i{font:400 13px/1.35 var(--sans);font-style:normal;color:rgba(236,232,225,.8)}
+.door em{font:500 13px/1 var(--sans);font-style:normal;color:var(--accent);margin-top:4px}
+.door:hover,.door:focus-visible{border-color:rgba(236,232,225,.7);background:rgba(10,10,11,.56)}
+.door:active{transform:scale(.985)}
+.door .tag{position:absolute;top:-10px;right:12px;font:11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:6px 9px;border-radius:999px;opacity:0;transform:translateY(-4px);transition:.3s}
+html[data-mode="business"] .door-b,html[data-mode="project"] .door-p{border-color:var(--accent)}
+html[data-mode="business"] .door-b .tag,html[data-mode="project"] .door-p .tag{opacity:1;transform:none}
+html[data-mode="business"] .door-b em,html[data-mode="project"] .door-p em{display:none}
+html[data-mode="business"] .door-p,html[data-mode="project"] .door-b{opacity:.66}
+.hero .down{margin-top:2px;color:rgba(236,232,225,.6)}
+html[data-mode] .hero .down{display:none}
+
+/* the moment: a full-screen word when a door opens */
+.moment{position:fixed;inset:0;z-index:55;background:var(--g0);display:grid;place-items:center;text-align:center;padding:6%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .3s,visibility 0s linear .3s}
+.moment.on{opacity:1;visibility:visible;transition:opacity .18s}
+.moment b{display:block;font:800 clamp(56px,17vw,190px)/.9 var(--display);letter-spacing:-.045em;transform:translateY(14px);transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.moment.on b{transform:none}
+.moment i{display:block;margin-top:16px;font:500 clamp(22px,5.4vw,38px)/1.2 var(--hand);color:var(--accent)}
+
+/* the pills: All · Business · Project */
+.sw{position:fixed;top:calc(66px + env(safe-area-inset-top,0px));left:50%;z-index:41;display:flex;padding:4px;border-radius:999px;border:1px solid var(--line2);background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-8px);transition:opacity .3s,transform .3s,top .3s}
+body.sw-on .sw{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+#topbar.hide+.sw{top:calc(12px + env(safe-area-inset-top,0px))}
+.sw button{font:500 13px/1 var(--sans);padding:10px 14px;border-radius:999px;color:var(--muted);min-height:36px;transition:.2s}
+.sw button[aria-pressed="true"]{background:var(--ink);color:var(--g0)}
+.sw button:hover{color:var(--ink)}
+.sw button[aria-pressed="true"]:hover{color:var(--g0)}
+
+/* text screens: words turn from grey to white as you scroll (A's device) */
+.screen{min-height:88svh;display:flex;flex-direction:column;justify-content:center;padding-bottom:40px}
+.tint{margin:0 0 .5em;font:500 clamp(27px,6.4vw,70px)/1.08 var(--display);letter-spacing:-.03em;max-width:19ch}
+.tint span{color:rgba(236,232,225,.26);transition:color .5s}
+.tint span.on{color:var(--ink)}
+.tint.wink{font:500 clamp(25px,5.6vw,52px)/1.15 var(--hand);letter-spacing:0;max-width:24ch;margin-top:.4em}
+.tint.wink span.on{color:var(--accent)}
+.screen .row{margin-top:30px}
+
+/* strips */
+.photos .track>.cover{flex:0 0 72%}
+.work.hover video{opacity:1}
+.work.hover .cap{opacity:0}
+.work.hover::after{content:"click for sound";position:absolute;left:12px;top:14px;font:11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(236,232,225,.85)}
+
+/* business */
+.owners{display:grid;gap:14px;margin-top:28px}
+.owners .pair{gap:10px}
+.asks{display:grid;gap:30px;margin-top:30px}
+.ask{border-top:1px solid var(--line);padding-top:18px}
+.ask h3{margin:0;font:800 clamp(26px,6.8vw,44px)/1 var(--display);letter-spacing:-.03em}
+.ask h3::before{content:"\201C";color:var(--accent)}
+.ask h3::after{content:"\201D";color:var(--accent)}
+.ask p{margin:12px 0 0;font:300 clamp(18px,4.4vw,23px)/1.35 var(--display);color:var(--muted);max-width:36ch}
+.ask p b{font-weight:500;color:var(--ink)}
+.month .lines{margin-top:22px}
+.month .lines .opt{color:var(--muted)}
+.month .lines .opt b{font-weight:500;color:var(--ink)}
+.month .sub{margin:48px 0 0}
+.month .deal{max-width:30ch}
+.range{display:grid;gap:14px;margin-top:28px}
+.range .films{display:grid;gap:14px}
+
+/* project */
+.films .grid{margin-top:28px}
+.shoot{display:grid;gap:30px;margin-top:10px}
+.shoot .way{margin-top:20px}
+.shoot .steps{margin-top:22px}
+.shoot .oneline{margin-top:16px}
+.three{margin-top:40px}
+.about .lines span span{display:inline}
+
+/* REC: a camera's recording light next to her name */
+.mark{display:inline-flex;align-items:center;gap:10px}
+.rec{display:inline-flex;align-items:center;gap:6px;font:400 11px/1 var(--mono);letter-spacing:.16em;color:var(--ink)}
+.rec i{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(229,54,42,.7);animation:rec 1.4s steps(1,end) infinite}
+@keyframes rec{0%,60%{opacity:1}61%,100%{opacity:.15}}
+@media (prefers-reduced-motion:reduce){.rec i{animation:none}}
+
+/* project · fashion films: big ones first, then the rest; a fold for more Nobelle */
+.fgrid{display:grid;gap:14px;margin-top:28px}
+.fgrid .work{aspect-ratio:16/9}
+.more{display:grid;gap:14px}
+.more-btn{justify-self:start;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:10px 18px;border-radius:999px;border:1px solid var(--line2);font:500 14px/1 var(--sans);color:var(--ink);background:var(--glass)}
+.more-btn b{font:300 22px/1 var(--display);color:var(--accent);transition:transform .3s}
+.more-btn[aria-expanded="true"] b{transform:rotate(45deg)}
+.more-box{display:grid;gap:14px}
+.more-box[hidden]{display:none}
+
+/* tall strips: runway, for businesses */
+.tallstrip .track>.work,.biz .slides .track>.work,#runway .slides .track>.work{flex:0 0 62%;aspect-ratio:9/16}
+
+@media (max-width:899px){
+  .owners .pair .work .cap b{font-size:17px}
+  .owners .pair .work .cap span span{display:none}
+  .owners .pair .work .cap .pl{width:38px;height:38px}
+}
+@media (min-width:900px){
+  .hero{padding-bottom:56px;gap:26px}
+  .hero .head{display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:48px}
+  .hero .one{font-size:clamp(22px,2.1vw,30px);max-width:26ch;margin:0 0 6px}
+  .doors{gap:16px;max-width:760px}
+  .door{min-height:150px;padding:20px 22px 18px;gap:7px}
+  .door i{font-size:15px;max-width:30ch}
+  .sw{top:calc(12px + env(safe-area-inset-top,0px));opacity:1;pointer-events:auto;transform:translateX(-50%)}
+  .screen .inner{max-width:1440px;width:100%}
+  .owners{grid-template-columns:1.4fr 1fr 1fr;gap:18px;align-items:end;max-width:1080px}
+  .owners .pair{display:contents}
+  .asks{grid-template-columns:1fr 1fr;gap:44px 56px}
+  .range{grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .range .pair{grid-column:auto;gap:18px}
+  .range .films{gap:18px}
+  .three{grid-template-columns:repeat(3,1fr);gap:40px;font-size:clamp(19px,1.7vw,24px)}
+  .fgrid{grid-template-columns:1fr 1fr;gap:18px}
+  .fgrid .big{grid-column:span 2}
+  .more{position:relative;aspect-ratio:16/9;place-items:center;border:1px dashed var(--line2);border-radius:10px}
+  .more-btn{justify-self:center}
+  .more[data-open]{border:0;place-items:stretch}
+  .more[data-open] .more-btn{position:absolute;top:10px;left:10px;z-index:3;min-height:38px;padding:6px 14px}
+  .more[data-open] .more-box,.more[data-open] .more-box .work{height:100%}
+  .tallstrip .track>.work,.biz .slides .track>.work,#runway .slides .track>.work{flex:0 0 280px}
+  .shoot{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .shoot .steps{grid-template-columns:1fr;gap:18px}
+  .shoot .step{grid-template-columns:auto 1fr;gap:16px}
+}
+</style>
+<script>
+(function(){ var h=location.hash.replace('#',''); if(h==='business'||h==='project') document.documentElement.setAttribute('data-mode',h); })();
+</script>
+<div class="grain" aria-hidden="true"></div>
+<div class="wash" aria-hidden="true"><img src="media/wash-1.jpg" alt="" data-wash="1" class="on"><img src="media/wash-2.jpg" alt="" data-wash="2"><img src="media/wash-3.jpg" alt="" data-wash="3"><img src="media/wash-4.jpg" alt="" data-wash="4"><img src="media/wash-5.jpg" alt="" data-wash="5"></div>
+<div id="cfg" data-phone="+14088886232" data-phone-pretty="(408) 888-6232" data-form=""></div>
+
+<header class="top" id="topbar">
+  <a class="mark" href="#top">Alisa Akimova<span class="rec" aria-hidden="true"><i></i>REC</span></a>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+</header>
+<div class="sw" id="sw" role="group" aria-label="Which page do you want">
+  <button class="pill" type="button" data-m="" aria-pressed="true">All</button>
+  <button class="pill" type="button" data-m="business" aria-pressed="false">Business</button>
+  <button class="pill" type="button" data-m="project" aria-pressed="false">Project</button>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="close" id="menuClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <div>
+    <h2 class="name">Alisa Akimova<i>Every month for your business. Or once, for your project.</i></h2>
+    <nav>
+      <a href="#work" data-all>All my work</a>
+      <a href="#business">For business owners</a>
+      <a href="#project">For projects</a>
+      <a href="#about">About me</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="go" data-sms>Text me</a>
+    </nav>
+  </div>
+</div>
+
+<div class="moment" id="moment" aria-hidden="true"><div><b id="momentWord">Business.</b><i id="momentSub"></i></div></div>
+
+<main class="flow">
+
+<!-- 1 · FIRST SCREEN: her films behind her name, two doors -->
+<section class="hero" id="top" data-wash="1">
+  <div class="reel" id="reel" aria-hidden="true">
+    <img src="media/reel-1.jpg" alt="" class="on" id="reelPoster">
+    <video playsinline muted preload="auto" id="reelA"></video>
+    <video playsinline muted preload="none" id="reelB"></video>
+  </div>
+  <div class="head">
+    <div>
+      <div class="eyebrow">Photo &amp; video · California</div>
+      <h1>Alisa<br>Akimova<svg class="scribble" viewBox="0 0 260 14" fill="none" aria-hidden="true" preserveAspectRatio="none"><path d="M2 9c40-6 70-7 110-4 30 2 60 3 90-2 20-3 40-3 56 1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></h1>
+    </div>
+    <div>
+      <p class="one">Every month for your business. Or once, for your project.</p>
+      <div class="now"><span id="nowPlaying">Nobelle</span></div>
+    </div>
+  </div>
+  <div>
+    <p class="which">Which one are you?</p>
+    <div class="doors">
+      <button class="door door-b" type="button" data-m="business" aria-pressed="false"><span class="tag" aria-hidden="true">You're here</span><small>Business</small><b>I run a business</b><i>Your page, handled. You on camera, every month.</i><em>Open →</em></button>
+      <button class="door door-p" type="button" data-m="project" aria-pressed="false"><span class="tag" aria-hidden="true">You're here</span><small>Project</small><b>I have a project</b><i>A shoot, a film, a batch of reels. Photos too.</i><em>Open →</em></button>
+    </div>
+    <a class="down" href="#work">Or just scroll ↓</a>
+  </div>
+</section>
+
+<!-- EVERYTHING · films -->
+<section class="neutral-only" id="work" data-wash="3">
+  <div class="eyebrow">My work</div>
+  <h2>Films.</h2>
+  <p class="lede">Tap one. Sound on.</p>
+  <div class="slides"><div class="track"><button class="work film" data-src="media/nobelle-carbeach.mp4" type="button" aria-label="Play Nobelle. Brand film · 34 s. Sound on."><img src="media/nobelle-carbeach.jpg" alt="Nobelle, car and beach" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Nobelle</b><span>Brand film · 34 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/nobelle-wind.mp4" type="button" aria-label="Play Nobelle. Brand film · 47 s. Sound on."><img src="media/nobelle-wind.jpg" alt="Nobelle, wind in the hills" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Nobelle</b><span>Brand film · 47 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/eddy-blue.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 35 s. Sound on."><img src="media/eddy-blue.jpg" alt="Eddy by Eddie, blue hour under the arches" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 35 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/eddy-church.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 15 s. Sound on."><img src="media/eddy-church.jpg" alt="Eddy by Eddie, pink dress on the church steps" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 15 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/eddy-rocks.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 23 s. Sound on."><img src="media/eddy-rocks.jpg" alt="Eddy by Eddie, red scarf on the rocks" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 23 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/eddy-shore.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 20 s. Sound on."><img src="media/eddy-shore.jpg" alt="Eddy by Eddie, wind on the shore" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 20 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/jonathan-man.mp4" type="button" aria-label="Play Jhonatan Salic. Fashion film · 22 s. Sound on."><img src="media/jonathan-man.jpg" alt="Jhonatan Salic, a man in a black coat in the city and on the bridge at night" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Jhonatan Salic</b><span>Fashion film · 22 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work film" data-src="media/jonathan-day.mp4" type="button" aria-label="Play Jhonatan Salic. Fashion film · 62 s. Sound on."><img src="media/jonathan-day.jpg" alt="Jhonatan Salic and a model walking under stone columns" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Jhonatan Salic</b><span>Fashion film · 62 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- EVERYTHING · photos -->
+<section class="photos neutral-only" id="photos" data-wash="4">
+  <div class="eyebrow">Photos</div>
+  <h2>Stills.</h2>
+  <p class="lede">Tap a cover, swipe through.</p>
+  <div class="slides"><div class="track"><button class="cover" type="button" data-gallery="nobelle" data-start="1" aria-label="Open the set: Mother Nobelle, Brand campaign"><img src="photos/nobelle-02.jpg" alt="Mother Nobelle collection, mother holding her daughter with pink hydrangeas" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Mother Nobelle</b><span>Brand campaign</span></span></span></button><button class="cover" type="button" data-gallery="lera" data-start="1" aria-label="Open the set: Fashion · daylight, Natural light"><img src="photos/lera-02.jpg" alt="Lera in a green leather jacket against a marble wall, natural light" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Fashion · daylight</b><span>Natural light</span></span></span></button><button class="cover" type="button" data-gallery="fashion" aria-label="Open the set: Fashion · flash, Direct flash"><img src="photos/fashion-01.jpg" alt="Lala in an orange suit and white platform boots, direct flash" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Fashion · flash</b><span>Direct flash</span></span></span></button><button class="cover" type="button" data-gallery="realestate" data-start="2" aria-label="Open the set: Real estate, A remodeled apartment"><img src="photos/realestate-03.jpg" alt="Remodeled kitchen with light oak cabinets and a stainless fridge" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Real estate</b><span>A remodeled apartment</span></span></span></button><button class="cover" type="button" data-gallery="conference" aria-label="Open the set: Conference, Event"><img src="photos/kolosov-08.jpg" alt="Two men in conversation at a conference, one smiling" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Conference</b><span>Event</span></span></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- EVERYTHING · for businesses (Cheminé, the house, owners on camera in one strip) -->
+<section class="neutral-only" id="allbiz" data-wash="2">
+  <div class="eyebrow">For businesses</div>
+  <h2>For businesses.</h2>
+  <div class="slides tallstrip"><div class="track"><button class="work tall" data-src="media/cheminee-cheesecake.mp4" type="button" aria-label="Play Cheminé. Reel · 14 s. Sound on."><img src="media/cheminee-cheesecake.jpg" alt="Cheminé, a pistachio and rose-petal cheesecake being cut" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Cheminé</b><span>Reel · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/cheminee-wine.mp4" type="button" aria-label="Play Cheminé. Reel · 18 s. Sound on."><img src="media/cheminee-wine.jpg" alt="Cheminé, red wine poured into a glass on a pink tablecloth" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Cheminé</b><span>Reel · 18 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/adler-waller.mp4" type="button" aria-label="Play Adler Builders. Real estate · 22 s. Sound on."><img src="media/adler-waller.jpg" alt="A remodeled house, walking through bright rooms" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Real estate · 22 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/adler-1906.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 66 s. Sound on."><img src="media/adler-1906.jpg" alt="Mark of Adler Builders talking in front of a 1906 house" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 66 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/adler-top4.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 52 s. Sound on."><img src="media/adler-top4.jpg" alt="Mark of Adler Builders counting down his top four" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 52 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/adler-teardown.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 41 s. Sound on."><img src="media/adler-teardown.jpg" alt="Mark of Adler Builders on keeping or tearing down a house" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 41 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- EVERYTHING · runway -->
+<section class="neutral-only" id="allrunway" data-wash="3">
+  <div class="eyebrow">Runway</div>
+  <h2>On the runway.</h2>
+  <p class="lede">Tap one.</p>
+  <div class="slides tallstrip"><div class="track"><button class="work tall" data-src="media/runway-tanya.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-tanya.jpg" alt="A model in a pink satin gown walking the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-wings.mp4" type="button" aria-label="Play Runway. Fashion show · 13 s. Sound on."><img src="media/runway-wings.jpg" alt="A model in a white gown with big angel wings on the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 13 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-gold.mp4" type="button" aria-label="Play Runway. Fashion show · 10 s. Sound on."><img src="media/runway-gold.jpg" alt="A model in a gold Egyptian headdress and gold top on the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 10 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-coat.mp4" type="button" aria-label="Play Runway. Fashion show · 12 s. Sound on."><img src="media/runway-coat.jpg" alt="A male model in a long green coat on a red-lit runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 12 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-sequin.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-sequin.jpg" alt="A model in a pink sequin gown on the runway, a desert scene on the screen behind her" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-ck.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-ck.jpg" alt="A model in a navy bomber jacket walking the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- EVERYTHING · on set -->
+<section class="bts neutral-only" id="bts" data-wash="5">
+  <div class="eyebrow">On set</div>
+  <h2>Behind the scenes.</h2>
+  <p class="lede">The plan is locked before I arrive. On the day we film it in order, talk, laugh, take breaks. I bring the coffee.</p>
+  <div class="slides"><div class="track"><button class="work" data-src="media/bts-story.mp4" type="button" aria-label="Play: A shoot day story: filming from the car and the open trunk."><img src="media/bts-story.jpg" alt="A shoot day story: filming from the car and the open trunk" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-plaza.mp4" type="button" aria-label="Play: Alisa with a gimbal, filming on a plaza."><img src="media/bts-plaza.jpg" alt="Alisa with a gimbal, filming on a plaza" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-arches.mp4" type="button" aria-label="Play: Alisa filming a model under the arches."><img src="media/bts-arches.jpg" alt="Alisa filming a model under the arches" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-crew.mp4" type="button" aria-label="Play: Film crew backstage with a crowned model."><img src="media/bts-crew.jpg" alt="Film crew backstage with a crowned model" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-studio.mp4" type="button" aria-label="Play: Studio set with lights, two people on chairs."><img src="media/bts-studio.jpg" alt="Studio set with lights, two people on chairs" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-gate.mp4" type="button" aria-label="Play: Alisa filming a model through a red gate."><img src="media/bts-gate.jpg" alt="Alisa filming a model through a red gate" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-makeup.mp4" type="button" aria-label="Play: Makeup touch-up on set, camera ready."><img src="media/bts-makeup.jpg" alt="Makeup touch-up on set, camera ready" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-interview.mp4" type="button" aria-label="Play: Interview chair under studio lights."><img src="media/bts-interview.jpg" alt="Interview chair under studio lights" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-forest.mp4" type="button" aria-label="Play: Alisa walking through the woods to a model."><img src="media/bts-forest.jpg" alt="Alisa walking through the woods to a model" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-gimbal.mp4" type="button" aria-label="Play: Alisa low with the gimbal on the plaza."><img src="media/bts-gimbal.jpg" alt="Alisa low with the gimbal on the plaza" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- BUSINESS · the text screen -->
+<section class="screen business-only" id="owners" data-wash="2">
+  <div class="inner">
+    <div class="eyebrow" style="margin-bottom:26px">For business owners</div>
+    <p class="tint">Business owners: this part is for you.</p>
+    <p class="tint">Every month I plan it, film it, cut it, post it, and watch what works. You show up and say yes or no.</p>
+    <p class="tint">You run your business. I run your page.</p>
+    <p class="tint wink">Hate the camera? Then we don't put you on camera. Your work goes on instead.</p>
+    <div class="row"><a class="btn accent" href="#contact" data-sms>Text me</a><a class="btn" href="#business">See owners on camera</a></div>
+  </div>
+</section>
+
+<!-- BUSINESS · owners on camera -->
+<section class="business-only" id="business" data-wash="3">
+  <div class="eyebrow">Owners on camera</div>
+  <h2>You talk. I do the rest.</h2>
+  <p class="lede">Builders, realtors, dealers, designers. You talk about your work. I ask the questions, film it, and cut out the ums.</p>
+  <div class="owners">
+    <button class="work portrait big" data-src="media/adler-1906.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 66 s. Sound on."><img src="media/adler-1906.jpg" alt="Mark of Adler Builders talking in front of a 1906 house" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 66 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <div class="pair"><button class="work portrait" data-src="media/adler-top4.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 52 s. Sound on."><img src="media/adler-top4.jpg" alt="Mark of Adler Builders counting down his top four" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 52 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work portrait" data-src="media/adler-teardown.mp4" type="button" aria-label="Play Adler Builders. Owner on camera · 41 s. Sound on."><img src="media/adler-teardown.jpg" alt="Mark of Adler Builders on keeping or tearing down a house" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Owner on camera · 41 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div>
+  </div>
+  <p class="credit">Mark of Adler Builders · three videos from one month · tap one, sound on</p>
+</section>
+
+<!-- BUSINESS · for businesses: Cheminé + the house -->
+<section class="business-only biz" id="biz" data-wash="5">
+  <div class="eyebrow">For businesses</div>
+  <h2>Your product. Your place.</h2>
+  <div class="slides"><div class="track"><button class="work tall" data-src="media/cheminee-cheesecake.mp4" type="button" aria-label="Play Cheminé. Reel · 14 s. Sound on."><img src="media/cheminee-cheesecake.jpg" alt="Cheminé, a pistachio and rose-petal cheesecake being cut" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Cheminé</b><span>Reel · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/cheminee-wine.mp4" type="button" aria-label="Play Cheminé. Reel · 18 s. Sound on."><img src="media/cheminee-wine.jpg" alt="Cheminé, red wine poured into a glass on a pink tablecloth" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Cheminé</b><span>Reel · 18 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/adler-waller.mp4" type="button" aria-label="Play Adler Builders. Real estate · 22 s. Sound on."><img src="media/adler-waller.jpg" alt="A remodeled house, walking through bright rooms" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Adler Builders</b><span>Real estate · 22 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- BUSINESS · photos: real estate + conference -->
+<section class="business-only photos" id="bizphotos" data-wash="4">
+  <div class="eyebrow">Photos</div>
+  <h2>Stills.</h2>
+  <p class="lede">Tap a cover, swipe through.</p>
+  <div class="slides"><div class="track"><button class="cover" type="button" data-gallery="realestate" data-start="2" aria-label="Open the set: Real estate, A remodeled apartment"><img src="photos/realestate-03.jpg" alt="Remodeled kitchen with light oak cabinets and a stainless fridge" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Real estate</b><span>A remodeled apartment</span></span></span></button><button class="cover" type="button" data-gallery="conference" aria-label="Open the set: Conference, Event"><img src="photos/kolosov-08.jpg" alt="Two men in conversation at a conference, one smiling" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Conference</b><span>Event</span></span></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- BUSINESS · sound like you? -->
+<section class="business-only" id="sound" data-wash="4">
+  <div class="eyebrow">Sound like you?</div>
+  <h2>Four things owners tell me.</h2>
+  <div class="asks">
+    <div class="ask"><h3>I don't have time for content.</h3><p><b>Good. You don't need any.</b> Every month I plan it, film it, cut it, post it, and watch what works. You show up and say yes or no.</p></div>
+    <div class="ask"><h3>I hate being on camera.</h3><p><b>Most people do, until we start talking.</b> My job is to calm you down and be nice so you act natural. If you truly hate it, we don't put you on camera.</p></div>
+    <div class="ask"><h3>Does this bring customers?</h3><p><b>It brings trust.</b> People might not buy a house from a Reel, but the videos prove you know your stuff. When they call, you're not a stranger.</p></div>
+    <div class="ask"><h3>I tried posting. It died in two weeks.</h3><p><b>That's why it's monthly.</b> Shoot days every month, I come to you. Something new on your page all month, with stories in between.</p></div>
+  </div>
+  <p class="oneline">You run your business. I run your page.</p>
+</section>
+
+<!-- BUSINESS · the month + how it starts -->
+<section class="business-only month" id="month" data-wash="5">
+  <div class="eyebrow">The month</div>
+  <h2>What a month looks like.</h2>
+  <p class="lede">I film it, cut it, post it. You run your business.</p>
+  <div class="lines">
+    <span>I write it, film it, edit it. And I answer the comments.</span>
+    <span>Shoot days every month. I come to you.</span>
+    <span>Videos, photos and picture posts for your page.</span>
+    <span>Something new on your Instagram and Facebook all month, with stories in between.</span>
+    <span class="opt"><b>Posting is your call.</b> I can run your page, or hand you the files and you post them yourself.</span>
+  </div>
+  <div class="eyebrow sub">How it starts</div>
+  <h2>Three steps.</h2>
+  <div class="steps"><div class="step"><b>1</b><p>Text or call. 15 minutes about your business.</p></div><div class="step"><b>2</b><p>One paid shoot, about 4 hours. You keep the videos.</p></div><div class="step"><b>3</b><p>Like them? We keep going. That shoot counts toward your first month.</p></div></div>
+  <ul class="keep">
+    <li>The first shoot is paid. The videos are yours either way.</li>
+    <li>You don't sign up for the month until you've seen your own videos.</li>
+  </ul>
+  <p class="deal">Shoots booked one at a time add up. Over time, the month comes out ahead.</p>
+  <p class="oneline">You show up. I do the rest.</p>
+  <details class="fold"><summary>Not ready to talk?</summary><p>Leave your Instagram and email. I'll send a short video with ideas for your page.</p><input id="nr1" placeholder="@yourname" aria-label="Your Instagram" autocapitalize="none" autocorrect="off" spellcheck="false"><input id="nr2" type="email" inputmode="email" autocomplete="email" placeholder="your email" aria-label="Your email"><div class="row"><button class="btn accent" type="button" id="nrSend">Send</button></div></details>
+</section>
+
+
+<!-- PROJECT · the text screen -->
+<section class="screen project-only" id="projects" data-wash="3">
+  <div class="inner">
+    <div class="eyebrow" style="margin-bottom:26px">For projects</div>
+    <p class="tint">A project is personal. A photo shoot, a film, a batch of reels and photos. Not only for designers.</p>
+    <p class="tint">I bring the plan and the equipment. You bring the idea, we make a masterpiece.</p>
+    <p class="tint wink">If it's for reach, I care about the script and the numbers. If it's art, I care about the process and the look.</p>
+    <div class="row"><a class="btn accent" href="#contact" data-sms>Text me the idea</a><a class="btn" href="#project">See the films</a></div>
+  </div>
+</section>
+
+<!-- PROJECT · fashion films, her order (Oct 25): Blue hour, Nobelle, Church steps, more Nobelle, Rocks, Shore, then Jhonatan Salic -->
+<section class="project-only films" id="project" data-wash="2">
+  <div class="eyebrow">Films</div>
+  <h2>Fashion films.</h2>
+  <p class="lede">Eddy by Eddie, Nobelle and Jhonatan Salic. Tap one. Sound on.</p>
+  <div class="fgrid">
+    <button class="work big" data-src="media/eddy-blue.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 35 s. Sound on."><img src="media/eddy-blue.jpg" alt="Eddy by Eddie, blue hour under the arches" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 35 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work big" data-src="media/nobelle-carbeach.mp4" type="button" aria-label="Play Nobelle. Brand film · 34 s. Sound on."><img src="media/nobelle-carbeach.jpg" alt="Nobelle, car and beach" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Nobelle</b><span>Brand film · 34 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/eddy-church.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 15 s. Sound on."><img src="media/eddy-church.jpg" alt="Eddy by Eddie, pink dress on the church steps" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 15 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/nobelle-wind.mp4" type="button" aria-label="Play Nobelle. Brand film · 47 s. Sound on."><img src="media/nobelle-wind.jpg" alt="Nobelle, wind in the hills" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Nobelle</b><span>Brand film · 47 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/eddy-rocks.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 23 s. Sound on."><img src="media/eddy-rocks.jpg" alt="Eddy by Eddie, red scarf on the rocks" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 23 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/eddy-shore.mp4" type="button" aria-label="Play Eddy by Eddie. Fashion film · 20 s. Sound on."><img src="media/eddy-shore.jpg" alt="Eddy by Eddie, wind on the shore" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Eddy by Eddie</b><span>Fashion film · 20 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/jonathan-man.mp4" type="button" aria-label="Play Jhonatan Salic. Fashion film · 22 s. Sound on."><img src="media/jonathan-man.jpg" alt="Jhonatan Salic, a man in a black coat in the city and on the bridge at night" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Jhonatan Salic</b><span>Fashion film · 22 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    <button class="work" data-src="media/jonathan-day.mp4" type="button" aria-label="Play Jhonatan Salic. Fashion film · 62 s. Sound on."><img src="media/jonathan-day.jpg" alt="Jhonatan Salic and a model walking under stone columns" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Jhonatan Salic</b><span>Fashion film · 62 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+  </div>
+</section>
+
+<!-- PROJECT · runway -->
+<section class="project-only" id="runway" data-wash="5">
+  <div class="eyebrow">Runway</div>
+  <h2>On the runway.</h2>
+  <p class="lede">Tap one.</p>
+  <div class="slides"><div class="track"><button class="work tall" data-src="media/runway-tanya.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-tanya.jpg" alt="A model in a pink satin gown walking the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-wings.mp4" type="button" aria-label="Play Runway. Fashion show · 13 s. Sound on."><img src="media/runway-wings.jpg" alt="A model in a white gown with big angel wings on the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 13 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-gold.mp4" type="button" aria-label="Play Runway. Fashion show · 10 s. Sound on."><img src="media/runway-gold.jpg" alt="A model in a gold Egyptian headdress and gold top on the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 10 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-coat.mp4" type="button" aria-label="Play Runway. Fashion show · 12 s. Sound on."><img src="media/runway-coat.jpg" alt="A male model in a long green coat on a red-lit runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 12 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-sequin.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-sequin.jpg" alt="A model in a pink sequin gown on the runway, a desert scene on the screen behind her" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work tall" data-src="media/runway-ck.mp4" type="button" aria-label="Play Runway. Fashion show · 14 s. Sound on."><img src="media/runway-ck.jpg" alt="A model in a navy bomber jacket walking the runway" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span><b>Runway</b><span>Fashion show · 14 s</span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- PROJECT · stills -->
+<section class="project-only photos" id="stills" data-wash="4">
+  <div class="eyebrow">Photos</div>
+  <h2>Stills.</h2>
+  <p class="lede">Tap a cover, swipe through.</p>
+  <div class="slides"><div class="track"><button class="cover" type="button" data-gallery="nobelle" data-start="1" aria-label="Open the set: Mother Nobelle, Brand campaign"><img src="photos/nobelle-02.jpg" alt="Mother Nobelle collection, mother holding her daughter with pink hydrangeas" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Mother Nobelle</b><span>Brand campaign</span></span></span></button><button class="cover" type="button" data-gallery="lera" data-start="1" aria-label="Open the set: Fashion · daylight, Natural light"><img src="photos/lera-02.jpg" alt="Lera in a green leather jacket against a marble wall, natural light" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Fashion · daylight</b><span>Natural light</span></span></span></button><button class="cover" type="button" data-gallery="fashion" aria-label="Open the set: Fashion · flash, Direct flash"><img src="photos/fashion-01.jpg" alt="Lala in an orange suit and white platform boots, direct flash" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Fashion · flash</b><span>Direct flash</span></span></span></button><button class="cover" type="button" data-gallery="realestate" data-start="2" aria-label="Open the set: Real estate, A remodeled apartment"><img src="photos/realestate-03.jpg" alt="Remodeled kitchen with light oak cabinets and a stainless fridge" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Real estate</b><span>A remodeled apartment</span></span></span></button><button class="cover" type="button" data-gallery="conference" aria-label="Open the set: Conference, Event"><img src="photos/kolosov-08.jpg" alt="Two men in conversation at a conference, one smiling" loading="lazy"><span class="veil"></span><span class="cap"><span><b>Conference</b><span>Event</span></span></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+</section>
+
+<!-- PROJECT · on set -->
+<section class="project-only bts" id="onset" data-wash="5">
+  <div class="eyebrow">On set</div>
+  <h2>What a shoot with me looks like.</h2>
+  <p class="lede">The plan is locked before I arrive. On the day we film it in order, talk, laugh, take breaks. I bring the coffee.</p>
+  <div class="slides"><div class="track"><button class="work" data-src="media/bts-story.mp4" type="button" aria-label="Play: A shoot day story: filming from the car and the open trunk."><img src="media/bts-story.jpg" alt="A shoot day story: filming from the car and the open trunk" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-plaza.mp4" type="button" aria-label="Play: Alisa with a gimbal, filming on a plaza."><img src="media/bts-plaza.jpg" alt="Alisa with a gimbal, filming on a plaza" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-arches.mp4" type="button" aria-label="Play: Alisa filming a model under the arches."><img src="media/bts-arches.jpg" alt="Alisa filming a model under the arches" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-crew.mp4" type="button" aria-label="Play: Film crew backstage with a crowned model."><img src="media/bts-crew.jpg" alt="Film crew backstage with a crowned model" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-studio.mp4" type="button" aria-label="Play: Studio set with lights, two people on chairs."><img src="media/bts-studio.jpg" alt="Studio set with lights, two people on chairs" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-gate.mp4" type="button" aria-label="Play: Alisa filming a model through a red gate."><img src="media/bts-gate.jpg" alt="Alisa filming a model through a red gate" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-makeup.mp4" type="button" aria-label="Play: Makeup touch-up on set, camera ready."><img src="media/bts-makeup.jpg" alt="Makeup touch-up on set, camera ready" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-interview.mp4" type="button" aria-label="Play: Interview chair under studio lights."><img src="media/bts-interview.jpg" alt="Interview chair under studio lights" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-forest.mp4" type="button" aria-label="Play: Alisa walking through the woods to a model."><img src="media/bts-forest.jpg" alt="Alisa walking through the woods to a model" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button><button class="work" data-src="media/bts-gimbal.mp4" type="button" aria-label="Play: Alisa low with the gimbal on the plaza."><img src="media/bts-gimbal.jpg" alt="Alisa low with the gimbal on the plaza" loading="lazy"><video playsinline preload="none"></video><span class="veil"></span><span class="cap"><span></span><span class="pl"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span></span><span class="stop" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button></div><div class="strip-line" aria-hidden="true"><i></i></div><div class="strip-foot"><span class="hint">Swipe sideways</span><span class="arrows"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span></div></div>
+  <div class="lines three">
+    <span>I direct. You never have to wonder what to do with your hands.</span>
+    <span>I set the light and the mic, hand you a coffee, and we start. The camera is already rolling.</span>
+    <span>Reels for your Instagram, too. Same day, same camera, cut for the phone.</span>
+  </div>
+</section>
+
+<!-- PROJECT · a project, explained -->
+<section class="project-only" id="oneshoot" data-wash="3">
+  <div class="eyebrow">One project</div>
+  <h2>A project, explained.</h2>
+  <div class="shoot">
+    <div class="way">
+      <h3>What it can be</h3>
+      <ul>
+      <li>A fashion film or a brand film, from the plan to the last cut.</li>
+      <li>A batch of reels for a brand, a model or an influencer, cut for the phone.</li>
+      <li>On the go all day: vlogs, events, the runway. I hold the camera, the light and the mic.</li>
+      <li>Photos too: on their own, or from the same day.</li>
+      <li>Half a day or a full day. Bigger shoots run six to eight hours.</li>
+      <li>You get the films and the photos, graded, yours to keep.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="eyebrow">How it starts</div>
+      <div class="steps"><div class="step"><b>1</b><p>Text or call. 15 minutes about the idea.</p></div><div class="step"><b>2</b><p>I write the plan: place, time of day, shot list. Locked before I arrive.</p></div><div class="step"><b>3</b><p>We shoot. You get the films and the photos.</p></div></div>
+      <p class="oneline">Book one when you need one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED · about -->
+<section class="about" id="about" data-wash="4">
+  <div class="eyebrow">About me</div>
+  <h2>Behind the camera.</h2>
+  <div class="body">
+    <img class="photo" src="media/about.jpg" alt="Alisa on set, camera in hand" loading="lazy">
+    <div>
+      <div class="lines">
+        <span>I grew up in the YouTube years and started filming as a kid.<span class="business-only"> Now I film for business owners.</span><span class="project-only"> Now I film fashion, brands and the odd wild idea.</span><span class="neutral-only"> Now I film for business owners, and for anyone with a project.</span></span>
+        <span>From Ukraine. California since I was 16.</span>
+        <span>On a shoot I'm the whole crew. The crew drinks a lot of coffee.</span>
+        <span>We're a team. I'm there to help you look good.</span>
+      </div>
+      <div class="chips" style="margin-top:18px"><span>English · Russian · Ukrainian</span><span>California · works anywhere in the US</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED · contact -->
+<section id="contact" data-wash="1">
+  <div class="eyebrow">Contact</div>
+  <h2>I call or text back.</h2>
+  <p class="lede">The same day.<span class="project-only"> Half an idea is enough. Text it to me.</span><span class="business-only"> Tell me what you do. I'll tell you what we'd film first.</span></p>
+  <div class="contact-grid">
+    <form class="form" id="form">
+      <input type="hidden" name="access_key" id="accessKey" value=""><input type="hidden" name="subject" value="From your website"><input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="f"><label for="c1">Name</label><input id="c1" name="name" autocomplete="name"></div>
+      <div class="f"><label for="c2">Business or project</label><input id="c2" name="business" autocomplete="organization"></div>
+      <div class="f"><label for="c3">Instagram</label><input id="c3" name="instagram" placeholder="@" autocapitalize="none" autocorrect="off" spellcheck="false"></div>
+      <div class="f"><label for="c4">Phone<i>required</i></label><input id="c4" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+      <div class="f"><label for="c5">What do you need?</label><textarea id="c5" name="message" rows="2" placeholder="A film, a photo day, your whole page, or not sure yet. All fine."></textarea></div>
+      <div class="row"><button class="btn solid" type="submit">Send</button></div>
+    </form>
+    <div>
+      <div class="ways">
+        <a class="btn" href="#contact" data-sms>Text</a>
+        <a class="btn" href="#contact" data-tel>Call</a>
+        <a class="btn" href="mailto:info@alisaakimova.com">Email</a>
+        <a class="btn" href="https://ig.me/m/akimovashooting" target="_blank" rel="noopener">Instagram DM</a>
+      </div>
+      <div class="plain">
+        <div>Phone <b id="phoneTxt" class="ph">(408) 888-6232</b><button class="copy" type="button" id="phoneCopy" data-copy="" hidden>copy</button></div>
+        <div>Email <b>info@alisaakimova.com</b><button class="copy" type="button" data-copy="info@alisaakimova.com">copy</button></div>
+        <div>Instagram <b>@akimovashooting</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer><span>Alisa Akimova · California</span><a href="#top">Back to top ↑</a></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo gallery">
+  <div class="top"><div class="title" id="lbTitle"></div><button class="close" id="lbClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <button class="nav prev" id="lbPrev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="nav next" id="lbNext" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <div class="track" id="lbTrack"></div>
+  <div class="count" id="lbCount"></div>
+</div>
+
+<div class="prep" id="prep" role="dialog" aria-modal="true" aria-label="A few more questions">
+  <button class="close" id="prepClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  <div class="box">
+    <div class="eyebrow" id="prepEyebrow">Sent. Thank you.</div>
+    <h3>A few more questions?</h3>
+    <p class="lede" id="prepIntro">Want me to come to our call with ideas ready? Answer these. Or skip them. I'll call you either way.</p>
+    <div class="form" id="prepForm">
+      <div class="f"><label for="p1" id="p1l">What do you do, and who is it for?</label><textarea id="p1" rows="2" placeholder=""></textarea></div>
+      <div class="f"><label for="p2" id="p2l">What do you want from working with me?</label><textarea id="p2" rows="2" placeholder="Videos, photos, your whole page, one shoot, or not sure yet. All fine."></textarea></div>
+      <div class="f"><label for="p3" id="p3l">What would a win look like for you?</label><textarea id="p3" rows="2" placeholder="More calls, more people coming in, a film you're proud of?"></textarea></div>
+      <div class="row"><button class="btn solid" type="button" id="prepSend">Send these too</button><button class="btn" type="button" id="prepSkip">Skip</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="bar" id="bar"><div class="in"><a class="btn" href="#contact" data-sms>Text</a><a class="btn ghost" href="#contact" data-tel>Call</a></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+// galleries for the viewer (base.js reads window.GAL)
+(function(){
+  function seq(k,n){ var a=[]; for(var i=1;i<=n;i++) a.push('photos/'+k+'-'+(i<10?'0'+i:i)+'.jpg'); return a; }
+  window.GAL={ fashion:{title:'Fashion · flash',sub:'Lala',files:seq('fashion',30)}, lera:{title:'Fashion · daylight',sub:'Lera · natural light',files:seq('lera',20)},
+    nobelle:{title:'Mother Nobelle',sub:'Brand campaign',files:seq('nobelle',17)}, realestate:{title:'Real estate',sub:'A remodeled apartment',files:seq('realestate',18)},
+    conference:{title:'Conference',sub:'Event',files:'08,02,14,06,01,16,03,04,05,07,09,10,11,12,13,15'.split(',').map(function(i){ return 'photos/kolosov-'+i+'.jpg'; })} };
+})();
+// the wash, mode-aware: a hidden section never wins. Sections keep data-wash in the markup; at runtime it moves to data-w so the kit's picker stands down.
+(function(){
+  var nodes=document.querySelectorAll('section'), all=document.querySelectorAll('.wash img'), last='1';
+  function pick(){ var best=null,bd=1e9; nodes.forEach(function(s){ if(!s.hasAttribute('data-w')) return; var r=s.getBoundingClientRect(); if(!r.height) return; if(r.bottom<0||r.top>innerHeight) return; var d=Math.abs(r.top+Math.min(r.height,innerHeight)*0.35-innerHeight*0.4); if(d<bd){bd=d;best=s;} }); if(!best) return; var k=best.getAttribute('data-w'); if(k===last) return; last=k; all.forEach(function(im){ im.classList.toggle('on', im.getAttribute('data-wash')===k); }); }
+  nodes.forEach(function(s){ var k=s.getAttribute('data-wash'); if(k){ s.setAttribute('data-w',k); s.removeAttribute('data-wash'); } });
+  addEventListener('scroll',pick,{passive:true}); addEventListener('resize',pick); pick(); window.pickWash=pick;
+})();
+</script>
+<script src="js/base.js"></script>
+<script>
+(function(){
+  var root=document.documentElement, body=document.body;
+  var reduced=false; try{ reduced=matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+
+  // 1 · the reel behind her name: three of her films, muted, one after another, crossfading
+  (function(){
+    var REEL=[
+      {src:'media/reel-1.mp4',poster:'media/reel-1.jpg',label:'Nobelle',len:8},
+      {src:'media/reel-2.mp4',poster:'media/reel-2.jpg',label:'Eddy by Eddie',len:8},
+      {src:'media/reel-3.mp4',poster:'media/reel-3.jpg',label:'Eddy by Eddie',len:8}
+    ];
+    var A=document.getElementById('reelA'), B=document.getElementById('reelB'), poster=document.getElementById('reelPoster'), now=document.getElementById('nowPlaying'), snd=document.getElementById('snd'), hero=document.querySelector('.hero');
+    if(!A||!B) return;
+    var vids=[A,B], i=0, cur=0, timer=null, sound=false, dead=false, heroOn=true;
+    function label(k){ if(now) now.textContent=REEL[k].label; }
+    function prep(v,k){ if(v.getAttribute('data-k')==String(k)) return; v.setAttribute('data-k',k); v.src=REEL[k].src; v.load(); }
+    function show(k,first){
+      var v=vids[cur], w=vids[1-cur];
+      prep(v,k); v.muted=!sound; v.loop=false; try{ v.currentTime=0; }catch(e){}
+      var p=v.play();
+      if(p&&p.then) p.then(function(){ v.classList.add('on'); w.classList.remove('on'); if(poster) poster.classList.remove('on'); label(k); if(!first) try{ w.pause(); }catch(e){} },function(){ dead=true; if(poster){ poster.src=REEL[k].poster; poster.classList.add('on'); } label(k); });
+      else { v.classList.add('on'); w.classList.remove('on'); label(k); }
+      clearTimeout(timer);
+      timer=setTimeout(function(){ if(dead&&!sound){ next(); return; } prep(w,(k+1)%REEL.length); timer=setTimeout(next, 2200); }, (REEL[k].len-2.2)*1000);
+    }
+    function next(){ if(!heroOn) { timer=setTimeout(next,1500); return; } i=(i+1)%REEL.length; cur=1-cur; show(i,false); }
+    if(reduced){ if(poster) poster.classList.add('on'); label(0); if(snd) snd.hidden=true; return; }
+    show(0,true);
+    if(snd) snd.addEventListener('click',function(){ sound=!sound; snd.setAttribute('aria-pressed',sound?'true':'false'); vids.forEach(function(v){ v.muted=!sound; }); if(sound){ var v=vids[cur]; if(v.paused){ v.play().catch(function(){}); } } });
+    // pause the reel while the hero is off screen or a site video is playing with sound
+    if('IntersectionObserver' in window && hero){ new IntersectionObserver(function(es){ es.forEach(function(en){ heroOn=en.isIntersecting; var v=vids[cur]; if(!heroOn){ try{ v.pause(); }catch(e){} } else if(v.paused&&!dead&&!body.classList.contains('playing')){ v.play().catch(function(){}); } }); },{threshold:0}).observe(hero); }
+    new MutationObserver(function(){ var v=vids[cur]; if(body.classList.contains('playing')){ try{ v.pause(); }catch(e){} } else if(heroOn&&v.paused&&!dead){ v.play().catch(function(){}); } }).observe(body,{attributes:true,attributeFilter:['class']});
+  })();
+
+  // 2 · computer: a film plays muted while the pointer is on it (the kit's click with sound is untouched)
+  var fine=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(fine){
+    document.querySelectorAll('.work[data-src]').forEach(function(w){
+      var v=w.querySelector('video'); if(!v) return;
+      v.addEventListener('playing',function(){ if(w.classList.contains('hover')){ w.classList.remove('playing','loading','paused'); body.classList.remove('playing'); } });
+      w.addEventListener('mouseenter',function(){ if(w.classList.contains('playing')||w.classList.contains('loading')) return; if(!v.src){ v.src=w.getAttribute('data-src'); v.load(); } v.muted=true; v.loop=true; w.classList.add('hover'); var p=v.play(); if(p&&p.catch) p.catch(function(){ w.classList.remove('hover'); }); });
+      w.addEventListener('mouseleave',function(){ if(!w.classList.contains('hover')) return; w.classList.remove('hover'); v.loop=false; v.pause(); try{ v.currentTime=0; }catch(e){} });
+    });
+    document.addEventListener('click',function(e){ var w=e.target.closest('.work'); if(!w||!w.classList.contains('hover')) return; var v=w.querySelector('video'); w.classList.remove('hover'); v.loop=false; v.pause(); try{ v.currentTime=0; }catch(e2){} },true);
+  }
+
+  // 3 · text screens: each word turns from grey to white as it rises past the middle of the screen
+  (function(){
+    var words=[];
+    document.querySelectorAll('.tint').forEach(function(p){ var t=p.textContent.trim().split(/\s+/); p.textContent=''; t.forEach(function(word,k){ var s=document.createElement('span'); s.textContent=word; p.appendChild(s); if(k<t.length-1) p.appendChild(document.createTextNode(' ')); words.push(s); }); });
+    if(!words.length) return; var ticking=false;
+    function upd(){ ticking=false; var line=innerHeight*0.62; words.forEach(function(s){ var r=s.getBoundingClientRect(); if(!r.height) return; s.classList.toggle('on', r.top+r.height/2<line); }); }
+    function req(){ if(!ticking){ ticking=true; requestAnimationFrame(upd); } }
+    addEventListener('scroll',req,{passive:true}); addEventListener('resize',req); addEventListener('load',req); upd(); window.updTint=upd;
+  })();
+
+  // 3b · the 'More Nobelle films' fold
+  document.querySelectorAll('.more-btn').forEach(function(b){ var box=document.getElementById(b.getAttribute('aria-controls')), t=b.querySelector('span'); if(!box) return;
+    b.addEventListener('click',function(){ var open=b.getAttribute('aria-expanded')==='true'; b.setAttribute('aria-expanded',open?'false':'true'); box.hidden=open; b.parentNode.toggleAttribute('data-open',!open); if(t) t.textContent=open?'More Nobelle films':'Fewer Nobelle films'; }); });
+
+  // 4 · the doors: All · Business · Project
+  var pills=document.querySelectorAll('.pill'), doors=document.querySelectorAll('.door'), moment=document.getElementById('moment');
+  var word=document.getElementById('momentWord'), sub=document.getElementById('momentSub'), hero=document.querySelector('.hero');
+  var SUB={ business:'Owners on camera first. Then how a month works.', project:'The films first. Then how a shoot goes.' };
+  var WORD={ business:'Business.', project:'Project.' };
+  var FIRST={ business:'owners', project:'projects', '':'work' };
+  function ok(m){ return m==='business'||m==='project'; }
+  function mode(){ return root.getAttribute('data-mode')||''; }
+  function press(list,m){ list.forEach(function(b){ b.setAttribute('aria-pressed', (b.getAttribute('data-m')||'')===m?'true':'false'); }); }
+  function setMode(m){
+    if(ok(m)) root.setAttribute('data-mode',m); else root.removeAttribute('data-mode');
+    press(pills,m); press(doors,m);
+    requestAnimationFrame(function(){ try{ dispatchEvent(new Event('resize')); }catch(e){} if(window.pickWash) window.pickWash(); if(window.updTint) window.updTint(); });
+  }
+  function jump(id,smooth){ var el=document.getElementById(id); if(!el) return; var y=el.getBoundingClientRect().top+scrollY-6;
+    if(smooth){ scrollTo({top:y,behavior:'smooth'}); return; }
+    var keep=root.style.scrollBehavior; root.style.scrollBehavior='auto'; scrollTo(0,y); root.style.scrollBehavior=keep; }
+  function mark(m){ try{ history.replaceState(null,'',m?('#'+m):location.pathname+location.search); }catch(e){} }
+  function choose(m){
+    if(!ok(m)) return;
+    if(reduced||!moment){ setMode(m); jump(FIRST[m],false); mark(m); return; }
+    if(word) word.textContent=WORD[m]; if(sub) sub.textContent=SUB[m]; moment.classList.add('on');
+    setTimeout(function(){ setMode(m); jump(FIRST[m],false); mark(m); },460);
+    setTimeout(function(){ moment.classList.remove('on'); },1200);
+  }
+  function switchTo(m,target){
+    var to=target||FIRST[m];
+    if(mode()===m){ jump(to,true); return; }
+    if(reduced){ setMode(m); jump(to,false); mark(m); return; }
+    body.classList.add('switching');
+    setTimeout(function(){ setMode(m); jump(to,false); mark(m); body.classList.remove('switching'); },230);
+  }
+  doors.forEach(function(d){ d.addEventListener('click',function(){ choose(d.getAttribute('data-m')); }); });
+  pills.forEach(function(p){ p.addEventListener('click',function(){ switchTo(p.getAttribute('data-m')||''); }); });
+  document.querySelectorAll('a[data-all]').forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); switchTo('', a.getAttribute('href').replace('#','')); }); });
+  addEventListener('hashchange',function(){ var h=location.hash.replace('#',''); if(!ok(h)) return; var same=mode()===h; if(!same) setMode(h); setTimeout(function(){ jump(same?h:FIRST[h],true); },30); });
+  function onScroll(){ if(hero) body.classList.toggle('sw-on', hero.getBoundingClientRect().bottom<12); }
+  addEventListener('scroll',onScroll,{passive:true}); addEventListener('resize',onScroll); onScroll();
+  press(pills,mode()); press(doors,mode());
+  var h0=location.hash.replace('#','');
+  if(ok(h0)) setTimeout(function(){ jump(FIRST[h0],false); },60);
+})();
+</script>
+</body>
+</html>
