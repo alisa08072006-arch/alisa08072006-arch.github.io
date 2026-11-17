@@ -254,3 +254,9 @@ footer a{text-decoration:none}
   .ways{grid-template-columns:1fr;margin-top:26px}
   .bar{display:none}
 }
+
+/* keyboard focus + form consent (Nov 17 2026) */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.consent{margin:2px 0 0;font:13px/1.5 var(--sans);color:var(--muted);max-width:44ch}
+.consent a{color:var(--muted);text-underline-offset:3px}
+footer .fl{display:flex;gap:18px}
